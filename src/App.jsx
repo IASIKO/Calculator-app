@@ -7,69 +7,61 @@ import * as math from "mathjs";
 function App() {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
-  const [selectedOperatorSign, setSelectedOperatorSign] = useState("");
+  const [selectedOperator, setSelectedOperator] = useState("");
 
   const handleClick = (e) => {
     const buttonName = e.target.name;
 
     if (isNaN(buttonName)) {
-      // If an operator button is clicked
-      if (selectedOperatorSign && selectedOperatorSign !== buttonName) {
-        // If a different operator is already selected, update the selected operator
-        setSelectedOperatorSign(buttonName);
-        setInput(input.slice(0, -1).concat(buttonName));
-        setOutput(input.slice(0, -1).concat(buttonName));
-      } else if (!selectedOperatorSign) {
-        // Otherwise, select the operator and append it to the input
-        setSelectedOperatorSign(buttonName);
-        setInput(input.concat(buttonName));
-        if (output) {
-          setOutput(math.evaluate(input).toString());
+      if (input) {
+        // If an operator button is clicked
+        if (selectedOperator && selectedOperator !== buttonName) {
+          // If a different operator is already selected, update the selected operator
+          setSelectedOperator(buttonName);
+          setInput(input.slice(0, -1).concat(buttonName));
+        } else if (!selectedOperator) {
+          // Otherwise, select the operator and append it to the input
+          setSelectedOperator(buttonName);
+          setInput(input.concat(buttonName));
         }
       }
     } else {
       // If a number button is clicked
-      if (selectedOperatorSign) {
+      if (selectedOperator) {
         // If an operator is already selected, append the number to the input after the operator
-        if (input.slice(-1) === selectedOperatorSign) {
+        if (input.slice(-1) === selectedOperator) {
           setInput(input.concat(buttonName));
           // setOutput(input.concat(buttonName));
         } else {
-          setInput(input + selectedOperatorSign + buttonName);
-          // setOutput(input + selectedOperatorSign + buttonName);
+          setInput(input + selectedOperator + buttonName);
+          // setOutput(input + selectedOperator + buttonName);
         }
-        setSelectedOperatorSign("");
+        setSelectedOperator("");
       } else {
         // Otherwise, simply append the number to the input
         setInput(input.concat(buttonName));
-        setOutput(input.concat(buttonName));
-        if (output) {
-          setOutput(math.evaluate(input).toString());
-        }
       }
     }
   };
 
   const onDelete = () => {
     setInput(input.slice(0, -1));
-    setOutput(input.slice(0, -1));
-    setSelectedOperatorSign("");
+    setSelectedOperator("");
   };
 
   const onReset = () => {
     setInput("");
-    setOutput("");
-    setSelectedOperatorSign("");
+    setSelectedOperator("");
   };
-  
+
   const onEquals = () => {
-    try {
-      setInput(math.evaluate(input).toString());
-      setOutput(math.evaluate(input).toString());
-      setSelectedOperatorSign("");
-    } catch (err) {
-      setInput("Error");
-      setOutput("Error");
+    if (input) {
+      try {
+        setInput(math.evaluate(input).toString());
+        setSelectedOperator("");
+      } catch (err) {
+        setInput("Error");
+      }
     }
   };
 
