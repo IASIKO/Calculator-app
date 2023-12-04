@@ -46,7 +46,11 @@ function App() {
 
   const onDelete = () => {
     setInput(input.slice(0, -1));
-    setOutput(input.slice(0, -1));
+    if (input.slice(0, -1)) {
+      setOutput(math.evaluate(input.slice(0, -1)).toString());
+    } else {
+      setOutput("");
+    }
     setSelectedOperator("");
   };
 
