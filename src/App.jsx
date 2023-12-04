@@ -31,16 +31,15 @@ function App() {
         // If an operator is already selected, append the number to the input after the operator
         if (input.slice(-1) === selectedOperator) {
           setInput(input.concat(buttonName));
-          // setOutput(input.concat(buttonName));
+          setOutput(math.evaluate(input.concat(buttonName)).toString());
         } else {
           setInput(input + selectedOperator + buttonName);
-          // setOutput(input + selectedOperator + buttonName);
         }
         setSelectedOperator("");
       } else {
         // Otherwise, simply append the number to the input
         setInput(input.concat(buttonName));
-        setOutput(math.evaluate(input).toString());
+        setOutput(math.evaluate(input.concat(buttonName)).toString());
       }
     }
   };
@@ -52,6 +51,7 @@ function App() {
 
   const onReset = () => {
     setInput("");
+    setOutput("");
     setSelectedOperator("");
   };
 
