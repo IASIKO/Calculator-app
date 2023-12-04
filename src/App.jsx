@@ -40,6 +40,7 @@ function App() {
       } else {
         // Otherwise, simply append the number to the input
         setInput(input.concat(buttonName));
+        setOutput(math.evaluate(input).toString());
       }
     }
   };

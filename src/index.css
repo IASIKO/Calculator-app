@@ -79,22 +79,16 @@
 }
 
 ::-webkit-scrollbar {
-  width: 3px;
+  height: 9px;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--key-bg3-toggle);
-  border-radius: 3px;
+  border-radius: 6px;
+  padding: 0 20px;
 }
 
 ::-webkit-scrollbar-track {
   background-color: var(--screen-bg);
 }
 
-body {
-  scrollbar-color: var(--primary-key-bg3-toggle) var(--screen-bg);
-}
-
-body {
-  scrollbar-width: 3px;
-}
