@@ -2,4 +2,5 @@
 
 npm vite setup
 Tailwind css
+npm install mathjs
 
