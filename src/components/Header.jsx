@@ -11,7 +11,7 @@ const Header = () => {
   }, [theme]);
 
   return (
-    <header className="w-[400px] h-[36px] flex justify-between text-primary-screen">
+    <header className="w-[400px] h-[36px] flex justify-between text-primary-screen max-mobile:w-[313.5px]">
       <p className="text-[37px]">Calc</p>
       <div className="flex items-end gap-[15px]">
         <p className="text-[16px]">THEME</p>

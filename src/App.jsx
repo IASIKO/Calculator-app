@@ -77,8 +77,8 @@ function App() {
   };
 
   return (
-    <div className="w-screen h-screen bg-primary-main-bg items-center flex-col justify-center">
-      <main className="w-[440px] h-[575px] font-spartan p-[20px] border-[1px] border-primary-key-bg2 rounded-[5px] m-auto translate-y-14">
+    <div className="w-screen h-screen bg-primary-main-bg items-center flex-col justify-center relative">
+      <main className="w-[440px] h-[575px] font-spartan p-[20px] border-[1px] border-primary-key-bg2 rounded-[5px] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] max-mobile:w-[353.5px]">
         <Header />
         <Screen input={input} output={output} />
         <Keys
@@ -88,6 +88,15 @@ function App() {
           onEquals={onEquals}
         />
       </main>
+      <div className="w-[440px] h-[30px] font-spartan px-[20px] border-[1px] border-primary-key-bg2 rounded-[5px] m-auto translate-y-2 flex items-center justify-center max-mobile:w-[353.5px]">
+        <p className="text-primary-screen">
+          Coded by
+          <span className="text-primary-key-bg3-toggle">
+            {" "}
+            Giorgi Iaseshvili
+          </span>
+        </p>
+      </div>
     </div>
   );
 }

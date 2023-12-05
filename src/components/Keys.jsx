@@ -1,8 +1,8 @@
 import React from "react";
 
-const Keys = ({ onDelete, onReset, onEquals, handleClick}) => {
+const Keys = ({ onDelete, onReset, onEquals, handleClick }) => {
   return (
-    <div className="w-[400px] h-[360px] rounded-[5px] bg-primary-keypad-toggle-bg p-[20px] grid grid-cols-4 gap-[20px]">
+    <div className="w-[400px] h-[360px] rounded-[5px] bg-primary-keypad-toggle-bg p-[20px] grid grid-cols-4 gap-[20px] max-mobile:w-[313.5px]">
       <button
         className="rounded-[8px] bg-primary-key-bg-main shadow-[0_4px_0] shadow-primary-key-shadow-main text-[32px] hover:bg-primary-hover1 hover:shadow-primary-hover-bg1 transition-all duration-[200ms]"
         name="7"

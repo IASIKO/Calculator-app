@@ -2,6 +2,9 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    screens: {
+      'mobile': '485px'
+    },
     extend: {
       gridTemplateColumns: {
         8: "repeat(4,minmax(70px,75px))",
