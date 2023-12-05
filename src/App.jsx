@@ -47,7 +47,11 @@ function App() {
   const onDelete = () => {
     setInput(input.slice(0, -1));
     if (input.slice(0, -1)) {
-      setOutput(math.evaluate(input.slice(0, -1)).toString());
+      if (!isNaN(input.slice(0, -1)[input.slice(0, -1).length - 1])) {
+        setOutput(math.evaluate(input.slice(0, -1)).toString());
+      } else {
+        setOutput(math.evaluate(input.slice(0, -2)).toString());
+      }
     } else {
       setOutput("");
     }
@@ -67,7 +71,7 @@ function App() {
         setOutput("");
         setSelectedOperator("");
       } catch (err) {
-        setInput("Error");
+        setInput("Err");
       }
     }
   };
