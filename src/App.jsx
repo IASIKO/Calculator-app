@@ -91,10 +91,14 @@ function App() {
       <div className="w-[440px] h-[30px] font-spartan px-[20px] border-[1px] border-primary-key-bg2 rounded-[5px] m-auto translate-y-2 flex items-center justify-center max-mobile:w-[353.5px]">
         <p className="text-primary-screen">
           Coded by
-          <span className="text-primary-key-bg3-toggle">
+          <a
+            href="https://www.linkedin.com/in/giorgi-iaseshvili/"
+            target="_blank"
+            className="text-primary-key-bg3-toggle"
+          >
             {" "}
             Giorgi Iaseshvili
-          </span>
+          </a>
         </p>
       </div>
     </div>
